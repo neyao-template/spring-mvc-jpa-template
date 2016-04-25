@@ -30,7 +30,9 @@ just follow the yellow brick road
 
 
 References
-----------------
+----------
+- Spring data offical reference  
+  http://docs.spring.io/spring-data/commons/docs/current/reference/html/
 - https://github.com/Fruzenshtein/spr-data  
   http://fruzenshtein.com/spring-mvc-hibernate-maven-crud/
   http://fruzenshtein.com/spring-jpa-data-hibernate-mysql/
