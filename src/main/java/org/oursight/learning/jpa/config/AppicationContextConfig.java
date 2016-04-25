@@ -1,8 +1,8 @@
-package org.oursight.learning.hibernate.config;
+package org.oursight.learning.jpa.config;
 
 import org.hibernate.SessionFactory;
-import org.oursight.learning.hibernate.dao.UserDAO;
-import org.oursight.learning.hibernate.dao.UserDAOImpl;
+import org.oursight.learning.jpa.dao.UserDao;
+import org.oursight.learning.jpa.dao.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.oursight.learning.hibernate.springmvc")
+@ComponentScan(basePackages = "org.oursight.learning.jpa.springmvc")
 public class AppicationContextConfig {
     @Bean(name = "viewResolver")
     public ViewResolver viewResolver() {
@@ -37,9 +37,5 @@ public class AppicationContextConfig {
         return messageSource;
     }
 
-    @Autowired
-    @Bean(name = "userDao")
-    public UserDAO getUserDao(SessionFactory sessionFactory) {
-        return new UserDAOImpl(sessionFactory);
-    }
+
 }

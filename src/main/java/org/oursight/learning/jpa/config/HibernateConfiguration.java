@@ -1,4 +1,4 @@
-package org.oursight.learning.hibernate.config;
+package org.oursight.learning.jpa.config;
 
 import java.util.Properties;
 
@@ -17,27 +17,27 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Created by neyao@github.com on 2016/3/11.
+ * This method will not use anymore.
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"org.oursight.learning.hibernate.config"})
+@ComponentScan({"org.oursight.learning.jpa.config"})
 @PropertySource(value = {"classpath:hibernate.properties"})
 public class HibernateConfiguration {
     @Autowired
     private Environment environment;
 
     @Bean
-    public LocalSessionFactoryBean getSessionFactory() {
+    public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"org.oursight.learning.hibernate.bo"});
-        sessionFactory.setHibernateProperties(hibernateProperties());
+        sessionFactory.setDataSource(getDataSource());
+        sessionFactory.setPackagesToScan(new String[]{"org.oursight.learning.jpa.bo"});
+        sessionFactory.setHibernateProperties(getConfiguredProperties());
         return sessionFactory;
     }
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
@@ -46,7 +46,7 @@ public class HibernateConfiguration {
         return dataSource;
     }
 
-    private Properties hibernateProperties() {
+    private Properties getConfiguredProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));

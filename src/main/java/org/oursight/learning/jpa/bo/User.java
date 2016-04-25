@@ -1,4 +1,4 @@
-package org.oursight.learning.hibernate.bo;
+package org.oursight.learning.jpa.bo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +32,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name="age")
+    private int age;
+
     public int getId() {
         return id;
     }
@@ -64,5 +67,13 @@ public class User {
         this.email = email;
     }
 
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
 }

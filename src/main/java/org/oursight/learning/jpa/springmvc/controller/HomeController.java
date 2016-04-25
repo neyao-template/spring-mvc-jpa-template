@@ -1,7 +1,7 @@
-package org.oursight.learning.hibernate.springmvc.controller;
+package org.oursight.learning.jpa.springmvc.controller;
 
-import org.oursight.learning.hibernate.bo.User;
-import org.oursight.learning.hibernate.dao.UserDAO;
+import org.oursight.learning.jpa.bo.User;
+import org.oursight.learning.jpa.dao.JpaUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private UserDAO userDao;
+    private JpaUserDao userDao;
 
     @RequestMapping("/")
     public ModelAndView handleRequest() throws Exception {
@@ -35,9 +36,11 @@ public class HomeController {
         return model;
     }
 
+    @Transactional
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ModelAndView saveUser(@ModelAttribute User user) {
-        userDao.saveOrUpdate(user);
+//        userDao.saveOrUpdate(user);
+        userDao.save(user);
         return new ModelAndView("redirect:/");
     }
 }

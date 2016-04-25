@@ -2,6 +2,16 @@ About this project
 ----------------
 This is a spring data integrated with JPA demo.
 
+Follow belong tutorials:
+- A very simple demo (without using spring data):  
+http://www.journaldev.com/7655/spring-orm-example-with-jpa-hibernate-transactions
+- An advanced demo using spring data:  
+http://fruzenshtein.com/spring-jpa-data-hibernate-mysql/
+
+**JPA implementation**
+- use JpaConfiguration instead of HibernateConfiguration
+- user JpsUserDao instead of UserDao
+
 How to run
 -----------------
 1. checkout from git

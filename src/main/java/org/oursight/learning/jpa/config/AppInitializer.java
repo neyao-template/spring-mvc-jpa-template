@@ -1,4 +1,4 @@
-package org.oursight.learning.hibernate.config;
+package org.oursight.learning.jpa.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,9 +13,11 @@ public class AppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext container) throws ServletException {
 
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(HibernateConfiguration.class);
-        ctx.register(AppicationContextConfig.class);
         ctx.setServletContext(container);
+        ctx.register(AppicationContextConfig.class);
+        ctx.register(DataSourceConfiguration.class);
+        //ctx.register(HibernateConfiguration.class);
+        ctx.register(JpaConfiguration.class);
 
         ServletRegistration.Dynamic servlet = container.addServlet(
                 "dispatcher", new DispatcherServlet(ctx));
