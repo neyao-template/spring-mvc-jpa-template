@@ -8,7 +8,7 @@ http://www.journaldev.com/7655/spring-orm-example-with-jpa-hibernate-transaction
 - An advanced demo using spring data:  
 http://fruzenshtein.com/spring-jpa-data-hibernate-mysql/
 
-**JPA implementation**
+**JPA implementation without spring data**
 - use JpaConfiguration instead of HibernateConfiguration
 - user JpsUserDao instead of UserDao
 

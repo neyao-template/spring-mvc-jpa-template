@@ -98,6 +98,13 @@
             <version>1.8.0.7</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.191</version>
+        </dependency>
+
+
         <!-- Java Servlet and JSP dependencies (for compilation only) START -->
         <dependency>
             <groupId>javax.servlet</groupId>
