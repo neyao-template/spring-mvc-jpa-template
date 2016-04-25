@@ -3,9 +3,9 @@ package org.oursight.learning.jpa.config;
 import org.oursight.learning.jpa.dao.JpaUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -19,6 +19,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = {"org.oursight.learning.jpa.respository"})
 public class JpaConfiguration {
 
     @Autowired
@@ -55,7 +56,7 @@ public class JpaConfiguration {
 
 
     @Bean
-    public JpaTransactionManager jpaTransactionManager() {
+    public JpaTransactionManager transactionManager() {
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return jpaTransactionManager;

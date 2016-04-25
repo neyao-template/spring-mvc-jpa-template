@@ -1,6 +1,7 @@
 jdbc.driverClassName = org.h2.Driver
 #jdbc.url = jdbc:h2:./temp/h2db-test
-jdbc.url = jdbc:h2:~/test-h2db;MV_STORE=FALSE;MVCC=FALSE
+jdbc.url = jdbc:h2:mem:test
+#jdbc.url = jdbc:h2:~/test-h2db;MV_STORE=FALSE;MVCC=FALSE
 # mv_store and mvcc to prevent writing to .mv.db file, see http://stackoverflow.com/questions/23806471/why-is-my-embedded-h2-program-writing-to-a-mv-db-file
 jdbc.username = sa
 jdbc.password =

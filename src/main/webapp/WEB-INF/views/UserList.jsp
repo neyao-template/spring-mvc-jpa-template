@@ -12,7 +12,8 @@
 <div align="center">
     <h1>Users List</h1>
 
-    <h2><a href="new">New User</a></h2>
+    <h2><a href="new">New User by primitive JPA</a></h2> &nbsp;
+    <h2><a href="new">New User by spring JPA support</a></h2>
 
     <table border="1">
         <th>No</th>
