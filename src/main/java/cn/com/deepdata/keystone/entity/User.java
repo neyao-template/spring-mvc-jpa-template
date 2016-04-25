@@ -1,4 +1,4 @@
-package org.oursight.learning.jpa.bo;
+package cn.com.deepdata.keystone.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

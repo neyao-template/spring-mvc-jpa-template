@@ -1,6 +1,6 @@
-package org.oursight.learning.jpa.repository;
+package cn.com.deepdata.keystone.repository;
 
-import org.oursight.learning.jpa.bo.User;
+import cn.com.deepdata.keystone.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

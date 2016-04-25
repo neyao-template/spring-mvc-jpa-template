@@ -1,9 +1,5 @@
-package org.oursight.learning.jpa.config;
+package cn.com.deepdata.keystone.config;
 
-import org.hibernate.SessionFactory;
-import org.oursight.learning.jpa.dao.UserDao;
-import org.oursight.learning.jpa.dao.UserDaoImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,8 +15,8 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.oursight.learning.jpa.springmvc")
-public class AppicationContextConfig {
+@ComponentScan(basePackages = "cn.com.deepdata.keystone.controller")
+public class ApplicationContextConfig {
     @Bean(name = "viewResolver")
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

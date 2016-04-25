@@ -1,6 +1,5 @@
-package org.oursight.learning.jpa.config;
+package cn.com.deepdata.keystone.config;
 
-import org.oursight.learning.jpa.dao.JpaUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +18,8 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"org.oursight.learning.jpa.repository"})
-public class JpaConfiguration {
+@EnableJpaRepositories(basePackages = {"cn.com.deepdata.keystone.repository"})
+public class JpaConfig {
 
     @Autowired
     private DataSource dataSource;
@@ -32,7 +31,7 @@ public class JpaConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setPackagesToScan("org.oursight.learning.jpa.bo");
+        entityManagerFactoryBean.setPackagesToScan("cn.com.deepdata.keystone.entity");
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         entityManagerFactoryBean.setJpaProperties(getHibernateProperties());
@@ -42,14 +41,17 @@ public class JpaConfiguration {
     @Bean
     public HibernateJpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
-        jpaVendorAdapter.setGenerateDdl(true);
-        jpaVendorAdapter.setShowSql(true);
+        //jpaVendorAdapter.setGenerateDdl(true);
+        //jpaVendorAdapter.setShowSql(true);
         return jpaVendorAdapter;
     }
 
     private Properties getHibernateProperties() {
         Properties properties = new Properties();
+        properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto", "validate")); // validate means change nothing
+        //properties.put("hibernate.show_sql",  environment.getProperty("hibernate.show_sql", Boolean.class));
+        //properties.put("hibernate.format_sql", environment.getProperty("hibernate.format_sql", Boolean.class));
 
         return properties;
     }
@@ -62,9 +64,4 @@ public class JpaConfiguration {
         return jpaTransactionManager;
     }
 
-    @Autowired
-    @Bean(name = "userDao")
-    public JpaUserDao getUserDao() {
-        return new JpaUserDao();
-    }
 }

@@ -1,7 +1,7 @@
-package org.oursight.learning.jpa.springmvc.controller;
+package cn.com.deepdata.keystone.controller;
 
-import org.oursight.learning.jpa.bo.User;
-import org.oursight.learning.jpa.dao.JpaUserDao;
+import cn.com.deepdata.keystone.entity.User;
+import cn.com.deepdata.keystone.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,11 +18,11 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private JpaUserDao userDao;
+    private UserRepository userRepository;
 
     @RequestMapping("/")
     public ModelAndView handleRequest() throws Exception {
-        List<User> listUsers = userDao.list();
+        List<User> listUsers = userRepository.findAll();
         ModelAndView model = new ModelAndView("UserList");
         model.addObject("userList", listUsers);
         return model;
@@ -38,9 +38,9 @@ public class HomeController {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ModelAndView saveUser(@ModelAttribute User user) {
-//        userDao.saveOrUpdate(user);
-        userDao.save(user);
+        userRepository.save(user);
         return new ModelAndView("redirect:/");
     }
+
 
 }

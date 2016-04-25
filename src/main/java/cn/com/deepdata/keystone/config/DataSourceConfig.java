@@ -1,4 +1,4 @@
-package org.oursight.learning.jpa.config;
+package cn.com.deepdata.keystone.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @PropertySource(value = {"classpath:hibernate.properties"})
-public class DataSourceConfiguration {
+public class DataSourceConfig {
     @Autowired
     private Environment environment;
 
