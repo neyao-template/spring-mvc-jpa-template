@@ -1,8 +1,7 @@
 package org.oursight.learning.jpa.springmvc.controller;
 
 import org.oursight.learning.jpa.bo.User;
-import org.oursight.learning.jpa.dao.JpaUserDao;
-import org.oursight.learning.jpa.respository.UserRepository;
+import org.oursight.learning.jpa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

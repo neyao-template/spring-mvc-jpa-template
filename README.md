@@ -12,6 +12,11 @@ http://fruzenshtein.com/spring-jpa-data-hibernate-mysql/
 - use JpaConfiguration instead of HibernateConfiguration
 - user JpsUserDao instead of UserDao
 
+**JPA implementation with spring data**
+- JpaConfiguration.java declares @EnableJpaRepositories
+- declares UserRepository in package org.oursight.learning.jpa.repository
+- Use UserRepository in JpaController, which url mapping to http://localhost:8080/jpa/list and jpa/new
+
 How to run
 -----------------
 1. checkout from git

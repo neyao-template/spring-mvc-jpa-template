@@ -19,7 +19,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"org.oursight.learning.jpa.respository"})
+@EnableJpaRepositories(basePackages = {"org.oursight.learning.jpa.repository"})
 public class JpaConfiguration {
 
     @Autowired
