@@ -19,6 +19,7 @@ public class AppInitializer implements WebApplicationInitializer {
         //ctx.register(HibernateConfiguration.class);
         ctx.register(JpaConfiguration.class);
 
+
         ServletRegistration.Dynamic servlet = container.addServlet(
                 "dispatcher", new DispatcherServlet(ctx));
 

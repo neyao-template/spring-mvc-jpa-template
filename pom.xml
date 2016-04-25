@@ -151,6 +151,23 @@
                 <version>8.1.16.v20140903</version>
 
             </plugin>
+
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>prepare-war</id>
+                    <phase>prepare-package</phase>
+
+                </execution>
+            </executions>
+        </plugin>
+
+
         </plugins>
 
     </build>
