@@ -36,7 +36,7 @@ public class HomeController {
         return model;
     }
 
-    @Transactional
+
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ModelAndView saveUser(@ModelAttribute User user) {
 //        userDao.saveOrUpdate(user);

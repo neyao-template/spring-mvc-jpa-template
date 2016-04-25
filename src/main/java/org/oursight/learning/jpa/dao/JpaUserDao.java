@@ -19,12 +19,17 @@ public class JpaUserDao {
     @PersistenceContext
     private EntityManager em;
 
+
+    @Transactional
     public void save(User user) {
         em.persist(user);
 
     }
 
+
+    @Transactional(readOnly = true)
     public List<User> list() {
+
         return em.createQuery("select u from User u").getResultList();
     }
 
